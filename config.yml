@@ -1,0 +1,42 @@
+baseURL: https://rohid.dev
+title: Rohid's Blog
+theme: PaperMod
+paginate: 5
+
+enableRobotsTXT: true
+
+languages:
+  en:
+    menu:
+      main:
+        - name: Posts
+          url: posts
+          weight: 5
+        - name: Tags
+          url: tags
+          weight: 10
+        - name: Categories
+          url: categories
+          weight: 10
+params:
+  ShowReadingTime: true
+  ShowCodeCopyButtons: true
+  ShowBreadCrumbs: true
+  ShowPostNavLinks: true
+  ShowShareButtons: true
+  ShowToc: true
+  homeInfoParams:
+    Title: Rohidul Islam
+    Content: Self-thought developer and designer
+
+  socialIcons:
+    - name: github
+      url: https://github.com/rohid-dev
+    - name: twitter
+      url: https://twitter.com/rohid_dev
+    - name: youtube
+      url: https://www.youtube.com/channel/UC3fyatEjSzRkzt_Wj1sg1hw
+    - name: BuyMeACoffee
+      url: https://www.buymeacoffee.com/rohid
+    - name: Rss
+      url: index.xml
