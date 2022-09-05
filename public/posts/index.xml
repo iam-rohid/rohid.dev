@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Rohid&#39;s Blog</title>
+    <link>https://rohid.dev/posts/</link>
+    <description>Recent content in Posts on Rohid&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 30 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://rohid.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Next.js Setup with TypeScript &amp; Tailwind CSS</title>
+      <link>https://rohid.dev/posts/nextjs-setup-with-typescript-and-tailwindcss/</link>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://rohid.dev/posts/nextjs-setup-with-typescript-and-tailwindcss/</guid>
+      <description>Let&amp;#39;s create a next.js Project with TypeScript and Tailwindcss from scratch!</description>
+    </item>
+    
+    <item>
+      <title>Next.js with Typescript</title>
+      <link>https://rohid.dev/posts/nextjs-with-typescript/</link>
+      <pubDate>Thu, 25 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://rohid.dev/posts/nextjs-with-typescript/</guid>
+      <description>In this blog, we are going to see how easily we can implement TypeScript into a nextjs project. Are you excited? It&amp;#39;s super simple to do trust me 😉.</description>
+    </item>
+    
+    <item>
+      <title>Top 10 VSCode Extensions for React</title>
+      <link>https://rohid.dev/posts/top-10-vs-code-extensions-for-react/</link>
+      <pubDate>Sun, 24 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://rohid.dev/posts/top-10-vs-code-extensions-for-react/</guid>
+      <description>We will be covering 10 essential visual studio code extensions for React developers. These extensions will help you code faster, cleaner and easier.</description>
+    </item>
+    
+  </channel>
+</rss>

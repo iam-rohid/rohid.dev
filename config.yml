@@ -1,6 +1,6 @@
 baseURL: https://rohid.dev
 title: Rohid's Blog
-theme: PaperMod
+theme: hugo-PaperMod
 paginate: 5
 
 enableRobotsTXT: true
