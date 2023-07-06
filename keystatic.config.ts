@@ -1,13 +1,19 @@
 import { collection, config, fields, singleton } from "@keystatic/core";
 
 export default config({
-  storage: {
-    kind: "local",
-  },
+  storage:
+    process.env.NODE_ENV === "development"
+      ? {
+          kind: "local",
+        }
+      : {
+          kind: "github",
+          repo: { name: "rohid.dev", owner: "iam-rohid" },
+        },
   singletons: {
     homepage: singleton({
       label: "Homepage",
-      path: "src/content/_homepage",
+      path: "src/content/settings",
       schema: {
         headline: fields.text({ label: "Headline" }),
       },
