@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default async function HomePage() {
   const posts = await keystaticReader.collections.posts.all();
-  const homepage = await keystaticReader.singletons.homepage.read();
+  const homepage = await keystaticReader.singletons.settings.read();
   return (
     <div>
       <h1>{homepage?.headline}</h1>

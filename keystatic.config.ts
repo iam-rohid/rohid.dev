@@ -11,8 +11,8 @@ export default config({
           repo: { name: "rohid.dev", owner: "iam-rohid" },
         },
   singletons: {
-    homepage: singleton({
-      label: "Homepage",
+    settings: singleton({
+      label: "Settings",
       path: "src/content/settings",
       schema: {
         headline: fields.text({ label: "Headline" }),
