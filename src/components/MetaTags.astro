@@ -1,6 +1,4 @@
 ---
-import { TWITTER_SITE } from "@/lib/constants";
-
 interface Props {
   title?: string;
   description?: string;
@@ -41,7 +39,8 @@ if (!finalImage) {
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content={TWITTER_SITE} />
+  <meta name="twitter:site" content="@rohiddev" />
+  <meta name="twitter:creator" content="@rohiddev" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={finalImage} />
