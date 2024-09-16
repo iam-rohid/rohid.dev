@@ -17,11 +17,19 @@ const {
   keywords,
 } = Astro.props;
 
-const ogImage = new URL(`${Astro.url.origin}/api/og.png`);
-ogImage.searchParams.set("title", title);
+const BASE_URL = import.meta.env.PUBLIC_BASE_URL;
 
-const finalUrl = url ?? Astro.url.href;
-const finalImage = image ?? ogImage.href;
+let finalUrl = url;
+if (!finalUrl) {
+  finalUrl = new URL(Astro.request.url, BASE_URL).href;
+}
+
+let finalImage = image;
+if (!finalImage) {
+  const ogImage = new URL(BASE_URL + "/api/og.png");
+  ogImage.searchParams.set("title", title);
+  finalImage = ogImage.href;
+}
 ---
 
 <Fragment slot="head">
