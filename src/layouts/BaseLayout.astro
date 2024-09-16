@@ -32,9 +32,15 @@ import "@/styles/globals.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <slot name="head" />
+    <slot name="head">
+      <title>rohid.dev</title>
+      <meta
+        name="description"
+        content="Hi, I’m Rohid, a Full-Stack Freelance Developer from Bangladesh. I build interactive web and mobile apps with a focus on great UI/UX. I love exploring new tech, contributing to open source, and creating tools for developers."
+      />
+    </slot>
   </head>
-  <body>
+  <body class="flex min-h-screen flex-col">
     <slot />
   </body>
 </html>

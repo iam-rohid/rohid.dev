@@ -1,0 +1,25 @@
+---
+import BlogPostCard from "@/components/BlogPostCard.astro";
+import HomeLayout from "@/layouts/HomeLayout.astro";
+import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+
+const blogPosts = await getCollection("blog", ({ data }) => {
+  return import.meta.env.PROD ? data.isDraft !== true : true;
+});
+const sortedBlogPosts = blogPosts.sort((a, b) =>
+  dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1
+);
+---
+
+<HomeLayout>
+  <Fragment slot="head">
+    <title>All Blog Posts</title>
+  </Fragment>
+  <main class="container mx-auto my-8 max-w-screen-md px-4 md:px-8">
+    <h2 class="text-2xl font-bold">All Blog Posts</h2>
+    <div class="-mx-4 mt-8 grid">
+      {sortedBlogPosts.map((post) => <BlogPostCard {post} />)}
+    </div>
+  </main>
+</HomeLayout>

@@ -1,8 +1,57 @@
 ---
-import { ModeToggle } from "@/components/ModeToggle";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import BlogPostCard from "@/components/BlogPostCard.astro";
+import HomeLayout from "@/layouts/HomeLayout.astro";
+import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+
+const blogPosts = await getCollection("blog", ({ data }) => {
+  return import.meta.env.PROD ? data.isDraft !== true : true;
+});
+const recentBlogPosts = blogPosts
+  .sort((a, b) =>
+    dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1
+  )
+  .slice(0, 5);
 ---
 
-<BaseLayout>
-  <ModeToggle client:load />
-</BaseLayout>
+<HomeLayout>
+  <main class="container mx-auto my-8 max-w-screen-md space-y-16 px-4 md:px-8">
+    <section class="space-y-4">
+      <h2 class="font-semibold">About me</h2>
+      <p class="leading-6 text-muted-foreground">
+        Hi, I’m Rohid, a Full-Stack Freelance Developer from Bangladesh. I build
+        interactive web and mobile apps with a focus on great UI/UX. I love
+        exploring new tech, contributing to open source, and creating tools for
+        developers. <a
+          href="https://x.com/rohiddev"
+          class="inline-flex items-center gap-1 font-medium text-foreground hover:underline"
+          target="_blank"
+          rel="nofollow noreferrer"
+          >Say hi
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-4 w-4"
+            ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+            ></path></svg
+          >
+        </a> on X/Twitter!
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="font-semibold">Recent Posts</h2>
+      <div class="-mx-4 grid">
+        {recentBlogPosts.map((post) => <BlogPostCard {post} />)}
+      </div>
+    </section>
+  </main>
+</HomeLayout>
