@@ -1,4 +1,5 @@
 ---
+import MetaTags from "@/components/MetaTags.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import { getCollection } from "astro:content";
@@ -7,9 +8,12 @@ const projects = await getCollection("projects");
 ---
 
 <HomeLayout>
-  <Fragment slot="head">
-    <title>All Projects</title>
-  </Fragment>
+  <MetaTags
+    title="All Projects"
+    description="All Projects from Rohid"
+    keywords={["Rohid", "Projects", "Project"]}
+    slot="head"
+  />
   <main class="container mx-auto my-8 max-w-screen-md px-4 md:px-8">
     <h2 class="text-2xl font-bold">All Projects</h2>
     <div class="-mx-4 mt-8 grid">

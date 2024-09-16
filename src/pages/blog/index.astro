@@ -1,6 +1,8 @@
 ---
 import BlogPostCard from "@/components/BlogPostCard.astro";
+import MetaTags from "@/components/MetaTags.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
+import { TWITTER_SITE } from "@/lib/constants";
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
 
@@ -10,12 +12,19 @@ const blogPosts = await getCollection("blog", ({ data }) => {
 const sortedBlogPosts = blogPosts.sort((a, b) =>
   dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1
 );
+
+const ogImage = new URL(`${Astro.url.origin}/api/og.png`);
+ogImage.searchParams.set("title", "All Blog Posts");
 ---
 
 <HomeLayout>
-  <Fragment slot="head">
-    <title>All Blog Posts</title>
-  </Fragment>
+  <MetaTags
+    title="All Blog Posts"
+    description="All Blog Posts from Rohid"
+    keywords={["Rohid", "Blog Posts", "Blog", "Articles"]}
+    slot="head"
+  />
+
   <main class="container mx-auto my-8 max-w-screen-md px-4 md:px-8">
     <h2 class="text-2xl font-bold">All Blog Posts</h2>
     <div class="-mx-4 mt-8 grid">

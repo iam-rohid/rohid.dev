@@ -1,5 +1,6 @@
 ---
 import BlogPostCard from "@/components/BlogPostCard.astro";
+import MetaTags from "@/components/MetaTags.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import type { InferGetStaticPropsType } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -37,6 +38,12 @@ const { posts, tag } = Astro.props;
 ---
 
 <HomeLayout>
+  <MetaTags
+    title={`#${tag}`}
+    description={`Posts with ${tag} tag`}
+    slot="head"
+  />
+
   <Fragment slot="head">
     <title>#{tag}</title>
   </Fragment>

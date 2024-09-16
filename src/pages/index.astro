@@ -1,5 +1,6 @@
 ---
 import BlogPostCard from "@/components/BlogPostCard.astro";
+import MetaTags from "@/components/MetaTags.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import { getCollection } from "astro:content";
@@ -20,6 +21,22 @@ const projects = await getCollection(
 ---
 
 <HomeLayout>
+  <MetaTags
+    title="Hi, I’m Rohid 👋"
+    description="Hi, I’m Rohid, a Full-Stack Freelance Developer from Bangladesh. I build interactive web and mobile apps with a focus on great UI/UX. I love exploring new tech, contributing to open source, and creating tools for developers."
+    keywords={[
+      "Rohid",
+      "rohid.dev",
+      "MD Rohidul Islam",
+      "Rohidul Islam",
+      "developr",
+      "Programmer",
+      "React Developer",
+      "React Native Developer",
+    ]}
+    slot="head"
+  />
+
   <main class="container mx-auto my-8 max-w-screen-md space-y-16 px-4 md:px-8">
     <section class="space-y-4">
       <h2 class="font-semibold">About me</h2>
