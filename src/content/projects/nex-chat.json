@@ -2,7 +2,7 @@
   "$schema": "../../../.astro/collections/projects.schema.json",
   "name": "NexChat",
   "description": "NexChat is an AI writing tool that offers unlimited conversations, messaging, and content generation.",
-  "url": "https://fantasyai.rohid.dev",
+  "url": "https://apps.apple.com/us/app/nexchat-ai-chat-bot-writer/id6446461296",
   "technologies": ["flutter", "dart"],
   "featured": true,
   "icon": "/images/projects/nex-chat/icon.svg"

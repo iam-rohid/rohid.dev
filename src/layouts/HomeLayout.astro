@@ -2,6 +2,9 @@
 import { ThemeToggle } from "@/components/ThemeToggle";
 import BaseLayout from "./BaseLayout.astro";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <BaseLayout>
@@ -17,22 +20,26 @@ import { buttonVariants } from "@/components/ui/button";
     <nav
       class="container mx-auto flex h-20 max-w-screen-md items-center px-4 md:px-8"
     >
-      <a
-        href="/"
-        class="font-semibold transition-colors duration-200 hover:text-muted-foreground"
-        >rohid.dev</a
-      >
+      <a href="/" class="font-semibold">rohid.dev</a>
 
       <div class="ml-8 flex items-center gap-4">
         <a
           href="/blog"
-          class="font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
-          >Blog</a
+          class={cn(
+            "font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground",
+            {
+              "text-foreground": pathname.startsWith("/blog"),
+            }
+          )}>Blog</a
         >
         <a
           href="/projects"
-          class="font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
-          >Projects</a
+          class={cn(
+            "font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground",
+            {
+              "text-foreground": pathname.startsWith("/projects"),
+            }
+          )}>Projects</a
         >
       </div>
 
