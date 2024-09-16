@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "Tik Track",
+  "description": "Discover TikTrack, the essential app for TikTok enthusiasts looking to excel. Gain valuable insights into your profile, track trends, and optimize your content strategy.",
+  "url": "https://apps.apple.com/us/app/tik-track-tracker-for-tok/id1633691441",
+  "technologies": ["expo", "react-native", "typescript"],
+  "featured": true,
+  "icon": "/images/projects/tik-track/icon.svg"
+}

@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../.astro/collections/technologies.schema.json",
+  "name": "Astro",
+  "icon": "/images/technologies/astro/icon.svg",
+  "iconDark": "/images/technologies/astro/icon-dark.svg"
+}

@@ -1,12 +1,19 @@
 ---
+import ProjectCard from "@/components/ProjectCard.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
+import { getCollection } from "astro:content";
+
+const projects = await getCollection("projects");
 ---
 
 <HomeLayout>
   <Fragment slot="head">
     <title>All Projects</title>
   </Fragment>
-  <div class="container mx-auto max-w-screen-md px-6 md:px-8">
-    <h2 class="my-4 text-2xl font-semibold">All Projects</h2>
-  </div>
+  <main class="container mx-auto my-8 max-w-screen-md px-4 md:px-8">
+    <h2 class="text-2xl font-bold">All Projects</h2>
+    <div class="-mx-4 mt-8 grid">
+      {projects.map((project) => <ProjectCard {project} />)}
+    </div>
+  </main>
 </HomeLayout>

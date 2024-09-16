@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../.astro/collections/technologies.schema.json",
+  "name": "Next.js",
+  "icon": "/images/technologies/nextjs/icon.svg",
+  "iconDark": "/images/technologies/nextjs/icon-dark.svg"
+}

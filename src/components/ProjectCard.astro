@@ -1,0 +1,113 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { buttonVariants } from "./ui/button";
+import { cn } from "@/lib/utils";
+import { Image } from "astro:assets";
+import { getEntries } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+
+const technologies = await getEntries(project.data.technologies);
+---
+
+<div class="group relative p-4 hover:bg-muted/50 md:rounded-lg">
+  <a
+    href={project.data.url}
+    class="peer absolute inset-0 focus:outline md:rounded-lg"
+    target="_blank"
+    rel="nofollow"
+  >
+    <span class="sr-only">{project.data.name}</span>
+  </a>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    class="pointer-events-none absolute right-4 top-4 h-5 w-5 text-muted-foreground transition-colors duration-200 peer-hover:text-foreground"
+    ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
+      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg
+  >
+  <div class="flex gap-4 max-md:flex-col">
+    <div class="relative h-14 w-14">
+      <Image
+        src={project.data.icon}
+        alt={`${project.data.name} icon`}
+        width={128}
+        height={128}
+        class={cn(
+          "absolute bottom-0 left-0 right-0 top-0 block object-contain aspect-square",
+          {
+            "dark:hidden": !!project.data.iconDark,
+          }
+        )}
+      />
+      {
+        project.data.iconDark && (
+          <Image
+            src={project.data.iconDark}
+            alt={`${project.data.name} icon dark`}
+            width={128}
+            height={128}
+            class="absolute bottom-0 left-0 right-0 top-0 hidden aspect-square object-contain dark:block"
+          />
+        )
+      }
+    </div>
+
+    <div class="flex-1">
+      <h3 class="font-semibold">{project.data.name}</h3>
+      <p class="mt-2 leading-6 text-muted-foreground">
+        {project.data.description}
+      </p>
+    </div>
+  </div>
+  <div class="mt-4 flex flex-wrap gap-2">
+    {
+      technologies.map((tech) => (
+        <div
+          class={cn(
+            buttonVariants({
+              variant: "outline",
+            }),
+            "pointer-events-none z-10 h-fit rounded-full bg-transparent py-1.5 pl-1.5 pr-2.5 leading-4 text-muted-foreground"
+          )}
+        >
+          <div class="relative mr-1 h-4 w-4">
+            <Image
+              src={tech.data.icon}
+              alt={`${tech.data.name} icon`}
+              width={128}
+              height={128}
+              class={cn(
+                "absolute bottom-0 left-0 right-0 top-0 block aspect-square object-contain",
+                {
+                  "dark:hidden": !!tech.data.iconDark,
+                }
+              )}
+            />
+            {tech.data.iconDark && (
+              <Image
+                src={tech.data.iconDark}
+                alt={`${tech.data.name} icon dark`}
+                width={128}
+                height={128}
+                class="absolute bottom-0 left-0 right-0 top-0 hidden aspect-square object-contain dark:block"
+              />
+            )}
+          </div>
+          {tech.data.name}
+        </div>
+      ))
+    }
+  </div>
+</div>

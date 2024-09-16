@@ -1,0 +1,5 @@
+{
+  "$schema": "../../../.astro/collections/technologies.schema.json",
+  "name": "Flutter",
+  "icon": "/images/technologies/flutter/icon.svg"
+}

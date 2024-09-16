@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "Fantasy AI",
+  "description": "Fantasy AI is an app built on top of Stable Diffusion that enables users to generate photorealistic images from text prompts.",
+  "url": "https://fantasyai.rohid.dev",
+  "technologies": ["flutter", "dart"],
+  "featured": true,
+  "icon": "/images/projects/fantasy-ai/icon.svg"
+}

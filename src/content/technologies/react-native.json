@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../.astro/collections/technologies.schema.json",
+  "name": "React Native",
+  "icon": "/images/technologies/react-native/icon.svg",
+  "iconDark": "/images/technologies/react-native/icon-dark.svg"
+}

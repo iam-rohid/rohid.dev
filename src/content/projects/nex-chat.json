@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "NexChat",
+  "description": "NexChat is an AI writing tool that offers unlimited conversations, messaging, and content generation.",
+  "url": "https://fantasyai.rohid.dev",
+  "technologies": ["flutter", "dart"],
+  "featured": true,
+  "icon": "/images/projects/nex-chat/icon.svg"
+}

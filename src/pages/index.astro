@@ -1,5 +1,6 @@
 ---
 import BlogPostCard from "@/components/BlogPostCard.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
@@ -12,6 +13,10 @@ const recentBlogPosts = blogPosts
     dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1
   )
   .slice(0, 5);
+const projects = await getCollection(
+  "projects",
+  ({ data }) => data.featured === true
+);
 ---
 
 <HomeLayout>
@@ -48,9 +53,54 @@ const recentBlogPosts = blogPosts
     </section>
 
     <section class="space-y-4">
+      <h2 class="font-semibold">Featured Projects</h2>
+      <div class="-mx-4 grid">
+        {projects.map((project) => <ProjectCard {project} />)}
+      </div>
+      <div class="flex items-center justify-end">
+        <a
+          href="/projects"
+          class="flex items-center font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
+          >All Projects <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="ml-2 h-5 w-5"
+            ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+          ></a
+        >
+      </div>
+    </section>
+
+    <section class="space-y-4">
       <h2 class="font-semibold">Recent Posts</h2>
       <div class="-mx-4 grid">
         {recentBlogPosts.map((post) => <BlogPostCard {post} />)}
+      </div>
+      <div class="flex items-center justify-end">
+        <a
+          href="/blog"
+          class="flex items-center font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
+          >All Posts <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="ml-2 h-5 w-5"
+            ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+          ></a
+        >
       </div>
     </section>
   </main>
