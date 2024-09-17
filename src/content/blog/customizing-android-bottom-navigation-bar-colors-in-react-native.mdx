@@ -13,9 +13,16 @@ tags:
   - ui
 ---
 
+import { Image } from "astro:assets";
+
 I don't know about you but I hate inconsistent design. You know that in React Native Android apps you will see a black navigation/bottom bar.
 
-![](/images/blog/customizing-android-bottom-navigation-bar-colors-in-react-native/Screenshot%202023-11-01%20at%203.16.41%E2%80%AFPM.png)
+<Image
+  src="/images/blog/customizing-android-bottom-navigation-bar-colors-in-react-native/screenshot-01.png"
+  alt="Customizing Android Bottom Navigation Bar Colors in React Native Screenshot 01"
+  width={1236}
+  height={822}
+/>
 
 No matter if you're using dark mode or light mode it will stay black and you can't really change it easily. This makes your app ugly and doesn't align with other native apps on your Android device. This is just an Android issue and doesn't happen on iOS. So, in this article let's learn how we can solve this problem.
 
@@ -59,6 +66,11 @@ useEffect(() => {
 
 And, that's it! you should see the navigation bar color change on your Android emulator/device.&nbsp;
 
-![](/images/blog/customizing-android-bottom-navigation-bar-colors-in-react-native/Screenshot%202023-11-01%20at%203.16.52%E2%80%AFPM.png)
+<Image
+  src="/images/blog/customizing-android-bottom-navigation-bar-colors-in-react-native/screenshot-02.png"
+  alt="Customizing Android Bottom Navigation Bar Colors in React Native Screenshot 02"
+  width={1292}
+  height={798}
+/>
 
 I hope this small article helped you fix your problem. Thanks for reading ❤️
