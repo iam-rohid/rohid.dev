@@ -5,7 +5,7 @@ import { readFileSync } from "fs";
 
 export const prerender = false;
 
-export const GET: APIRoute = async ({ url, request }) => {
+export const GET: APIRoute = async ({ url }) => {
   const Inter_24ptRegular = readFileSync(
     `${process.cwd()}/public/fonts/Inter_24pt-Regular.ttf`,
   );
