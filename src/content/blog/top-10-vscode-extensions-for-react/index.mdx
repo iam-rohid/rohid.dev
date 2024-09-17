@@ -8,6 +8,14 @@ tags:
   - react
 ---
 
+import { Image } from "astro:assets";
+import prettierCodeFormatter from "./pretter-code-formatted.gif";
+import highlightMatchingTag from "./highlight-matching-tag.gif";
+import autoRename from "./auto-rename.gif";
+import vsCodeReactRefactor from "./vs-code-react-refactor.gif";
+import npmIntellisense from "./npm-intellisense.gif";
+import changeCase from "./change-case.gif";
+
 ## What will be covered here?
 
 We will be covering 10 essential visual studio code extensions for React developers. These extensions will help you code faster, cleaner and easier.
@@ -35,7 +43,11 @@ JavaScript and React/Redux snippets in ES7+ with Babel plugin features for [VS C
 
 [Prettier](https://prettier.io/) is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
 
-![Prettier - Code formatted](/images/blog/top-10-vscode-extensions-for-react/projectB.gif)
+<Image
+  src={prettierCodeFormatter}
+  alt="Prettier - Code formatted"
+  densities={[0.5, 1]}
+/>
 
 Prettier - Code formatted
 
@@ -45,7 +57,11 @@ Prettier - Code formatted
 
 This extension highlights matching opening and/or closing tags. Optionally it also shows the path to tag in the status bar. Even though VSCode has some basic tag matching, it's just that - basic. This extension will try to match tags anywhere: from tag attributes, inside of strings, any files, while also providing extensive styling options to customize how tags are highlighted.
 
-![Highlight Matching Tag](/images/blog/top-10-vscode-extensions-for-react/zIA1XCzK_o.gif)
+<Image
+  src={highlightMatchingTag}
+  alt="Highlight Matching Tag"
+  densities={[0.5, 1]}
+/>
 
 Highlight Matching Tag
 
@@ -55,7 +71,7 @@ Highlight Matching Tag
 
 Automatically rename paired HTML/XML tag, same as Visual Studio IDE does.
 
-![Auto Rename Tag](/images/blog/top-10-vscode-extensions-for-react/usage.gif)
+<Image src={autoRename} alt="Auto Rename Tag" densities={[0.5, 1]} />
 
 Auto Rename Tag
 
@@ -65,7 +81,11 @@ Auto Rename Tag
 
 This simple extension provides JSX refactor code actions for React developers.
 
-![VSCode React Refactor](/images/blog/top-10-vscode-extensions-for-react/preview.gif)
+<Image
+  src={vsCodeReactRefactor}
+  alt="VSCode React Refactor"
+  densities={[0.5, 1]}
+/>
 
 VSCode React Refactor
 
@@ -81,7 +101,7 @@ ESLint statically analyzes your code to quickly find problems. ESLint is built i
 
 It autocompletes npm modules in import statements.
 
-![npm Intellisense](/images/blog/top-10-vscode-extensions-for-react/auto_complete.gif)
+<Image src={npmIntellisense} alt="npm Intellisense" densities={[0.5, 1]} />
 
 npm Intellisense
 
@@ -97,7 +117,7 @@ This extension allows you to tab out quotes, brackets, etc.
 
 A wrapper around [node-change-case](https://github.com/blakeembrey/node-change-case) for Visual Studio Code. Quickly change the case of the current selection or current word.
 
-![change-case](/images/blog/top-10-vscode-extensions-for-react/3c5e29b6-7a9c-11e5-9ce4-7eb944889696.gif)
+<Image src={changeCase} alt="Change Case" densities={[0.5, 1]} />
 
 change-case
 

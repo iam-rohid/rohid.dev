@@ -10,6 +10,11 @@ tags:
   - typescript
 ---
 
+import { Image } from "astro:assets";
+import ss1 from "./screenshot-01.png";
+import ss2 from "./screenshot-02.png";
+import ss3 from "./screenshot-03.png";
+
 ## Introduction 🥸
 
 **TypeScript** is powerful in every way 👀. It brings type definition in **JavaScript** 🤯. **TypeScript** helps us and IDE's finding bugs while we are coding. For that, we can deploy our websites/services without any hidden bugs for the most time. I think it is the default go-to language for modern development. At least that's what I think.
@@ -47,7 +52,7 @@ yarn add -D typescript @types/react @types/react-dom
 npm i -D typescript @types/react @types/react-dom
 ```
 
-![Vs Code Screenshot](/images/blog/nextjs-with-typescript/3PvfbUgdS.png)
+<Image src={ss1} alt="Vs Code Screenshot 01" densities={[0.5, 1]} />
 
 ### Step 3 - Change extensions from `.js` to `.tsx`
 
@@ -55,7 +60,7 @@ Finally, we can just change all the extensions from `.js` to `.tsx`.
 
 It should look like this
 
-![Vs Code Screenshot](/images/blog/nextjs-with-typescript/cn7YzDids.png)
+<Image src={ss2} alt="Vs Code Screenshot 02" densities={[0.5, 1]} />
 
 ### Step 4 - All done! run your project 🎉
 
@@ -70,7 +75,7 @@ npm run dev
 
 While running, next js will detect that you are using TypeScript and it will generate a config file for your project in the root directory `tsconfig.json`.
 
-![Vs Code Screenshot](/images/blog/nextjs-with-typescript/iadGNIa3t.png)
+<Image src={ss3} alt="Vs Code Screenshot 03" densities={[0.5, 1]} />
 
 ## All done 🥳🎉
 
