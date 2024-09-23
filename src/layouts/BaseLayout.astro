@@ -40,6 +40,21 @@ import "@/styles/globals.css";
         content="Hi, I’m Rohid, a Full-Stack Freelance Developer from Bangladesh. I build interactive web and mobile apps with a focus on great UI/UX. I love exploring new tech, contributing to open source, and creating tools for developers."
       />
     </slot>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GOOGLE_MID}`}
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", import.meta.env.PUBLIC_GOOGLE_MID);
+    </script>
   </head>
   <body class="flex min-h-screen flex-col">
     <slot />

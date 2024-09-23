@@ -1,6 +1,6 @@
 import { ImageResponse } from "@vercel/og";
 import type { APIRoute } from "astro";
-import OgImage from "./OgImage";
+import OgImage from "./_og-image";
 import { readFileSync } from "fs";
 
 export const prerender = false;
