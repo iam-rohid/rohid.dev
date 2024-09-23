@@ -1,0 +1,97 @@
+---
+isDraft: false
+title: Generate Database Diagram from Drizzle Schema
+description: Let's learn how to generate a database diagram from drizzle schema
+publishDate: 2024-09-24
+tags:
+  - drizzle
+  - database
+  - typescript
+---
+
+import { Image } from "astro:assets";
+import dbmlLivePreview from "./dbml-live-preview.gif";
+import dbmlEntityRelationshipDiagramsVisualizer from "./dbml-entity-relationship-diagrams-visualizer.gif";
+
+Welcome! In this guide, I’ll show you how to generate a database diagram from your [Drizzle ORM][drizzle-orm] schema using the [Drizzle DBML Generator][drizzle-dbml-generator]. Whether you’re working with Postgres or another database, these steps will help you visualize your schema quickly and efficiently.
+
+To generate a database diagram from [Drizzle ORM][drizzle-orm], we will use the [Drizzle DBML Generator][drizzle-dbml-generator] package. This package takes your Drizzle schema and generates [Database Markup Language][dbml] (DBML).
+
+Let's follow these steps to generate DBML from a Drizzle schema.
+
+## Step 1 - Install Dependenices
+
+Install [Drizzle DBML Generator][drizzle-dbml-generator] in your project.
+
+```bash
+npm i -D drizzle-dbml-generator tsx
+```
+
+> Before setting up [Drizzle DBML Generator][drizzle-dbml-generator], ensure that you have already configured [Drizzle ORM][drizzle-orm] in your project.
+
+## Step 2 - Create Generator File
+
+Now that we’ve installed [Drizzle DBML Generator][drizzle-dbml-generator], let’s create a file to run the generator. Create a dbml.ts file in your project and add the following code:
+
+```ts
+// dbml.ts
+import * as schema from "./schema";
+import { pgGenerate } from "drizzle-dbml-generator"; // Using Postgres for this example
+
+const out = "./schema.dbml";
+const relational = true;
+
+pgGenerate({ schema, out, relational });
+```
+
+In this file, we import all tables and relations from your schema file as schema.
+
+For this article, I’m using Postgres, so I’ve imported pgGenerate from `drizzle-dbml-generator`. You can use other generators as well.
+
+The `out` variable refers to the output path for the `dbml` file. It’s relative to the root of your project, typically where your `package.json` is located.
+
+Keep relational set to true if you want to link all tables together using the [Drizzle Relations][drizzle-relations] exports.
+
+Now, pass `schema`, `out`, and `relational` as props to the `pgGenerate` function, and you’re done with this file.
+
+## Step 3 - Run Generator
+
+To run the `dbml.ts` file, let’s add a script to our `package.json`. Add the following script to the scripts object:
+
+```json
+"scripts": {
+  // ...
+  "dbml": "tsx ./src/dbml.ts"
+}
+```
+
+Now, run the script from your terminal:
+
+```bash
+npm run dbml
+```
+
+After successfully running the script, you should see the `dbml` file in the specified location.
+
+Now that we have a Database Markup Language file, we need a tool to create a diagram from this dbml schema. For that, we can use one of the following two Visual Studio extensions:
+
+### 1. [DBML Live Preview][dbml-live-preview]
+
+<Image src={dbmlLivePreview} alt="DBML Live Preview" densities={[0.5, 1]} />
+
+### 2. [DBML Entity-Relationship Diagrams visualizer][dbml-entity-relationship-diagrams-visualizer]
+
+<Image
+  src={dbmlEntityRelationshipDiagramsVisualizer}
+  alt="DBML Entity-Relationship Diagrams visualizer"
+  densities={[0.5, 1]}
+/>
+
+And that’s it! You’ve now successfully generated a database diagram from your [Drizzle ORM][drizzle-orm] schema. Using [DBML][dbml] and the Visual Studio extensions, you can easily visualize and manage your database structure. Happy coding!
+
+[drizzle-orm]: https://orm.drizzle.team
+[drizzle-relations]: https://orm.drizzle.team/docs/rqb#declaring-relations
+[drizzle-dbml-generator]: https://github.com/L-Mario564/drizzle-dbml-generator
+[dbml]: https://dbml.dbdiagram.io
+[dbml-live-preview]: https://marketplace.visualstudio.com/items?itemName=nicolas-liger.dbml-viewer
+[dbml-entity-relationship-diagrams-visualizer]: https://marketplace.visualstudio.com/items?itemName=bocovo.dbml-erd-visualizer
