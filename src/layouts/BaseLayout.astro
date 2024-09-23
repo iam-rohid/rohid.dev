@@ -1,7 +1,5 @@
 ---
 import "@/styles/globals.css";
-
-const gogoelMID = import.meta.env.PUBLIC_GOOGLE_MID;
 ---
 
 <script is:inline>
@@ -44,9 +42,8 @@ const gogoelMID = import.meta.env.PUBLIC_GOOGLE_MID;
     </slot>
 
     <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src={`https://www.googletagmanager.com/gtag/js?id=${gogoelMID}`}></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N165NS4LRX"
+    ></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -54,7 +51,7 @@ const gogoelMID = import.meta.env.PUBLIC_GOOGLE_MID;
       }
       gtag("js", new Date());
 
-      gtag("config", gogoelMID);
+      gtag("config", "G-N165NS4LRX");
     </script>
   </head>
   <body class="flex min-h-screen flex-col">
