@@ -53,16 +53,14 @@ import "@/styles/globals.css";
 
       gtag("config", "G-N165NS4LRX");
     </script>
+    <script defer src="https://siteassist.io/js/wc-componets.js"></script>
   </head>
   <body class="flex min-h-screen flex-col">
+    <siteassist-floating-chat-button
+      side="right"
+      appId="a984fc65-a08b-466a-8a13-bf3ff2c5bd42"
+      theme="light"
+      color="#3b82f6"></siteassist-floating-chat-button>
     <slot />
   </body>
-  <script
-    src="https://siteassist.io/js/chat-widget.min.js"
-    data-name="siteassist-chat-widget"
-    data-id="a984fc65-a08b-466a-8a13-bf3ff2c5bd42"
-    data-color="#5F7FFF"
-    data-position="right"
-    data-x_margin="24"
-    data-y_margin="24"></script>
 </html>
