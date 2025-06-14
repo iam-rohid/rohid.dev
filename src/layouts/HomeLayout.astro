@@ -18,7 +18,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
   <header>
     <nav
-      class="container mx-auto flex h-20 max-w-screen-md items-center px-4 md:px-8"
+      class="container mx-auto flex h-20 max-w-(--breakpoint-md) items-center px-4 md:px-8"
     >
       <a href="/" class="font-semibold">rohid.dev</a>
 
@@ -106,14 +106,16 @@ const pathname = new URL(Astro.request.url).pathname;
   </div>
 
   <footer class="py-8">
-    <div class="container mx-auto max-w-screen-md space-y-4 px-4 md:px-8">
-      <p class="leading-6 text-muted-foreground">
+    <div
+      class="container mx-auto max-w-(--breakpoint-md) space-y-4 px-4 md:px-8"
+    >
+      <p class="text-muted-foreground leading-6">
         If you're looking to connect with me for a project, feel free to reach
         out to me.
       </p>
       <div class="flex flex-wrap gap-4">
         <a
-          class="font-medium text-muted-foreground hover:text-foreground"
+          class="text-muted-foreground hover:text-foreground font-medium"
           href="mailto:rohidul209@gmail.com"
           target="_blank"
           rel="nofollow"
@@ -121,7 +123,7 @@ const pathname = new URL(Astro.request.url).pathname;
           Email
         </a>
         <a
-          class="font-medium text-muted-foreground hover:text-foreground"
+          class="text-muted-foreground hover:text-foreground font-medium"
           href="https://x.com/rohiddev"
           target="_blank"
           rel="nofollow"
@@ -129,7 +131,7 @@ const pathname = new URL(Astro.request.url).pathname;
           X/Twitter
         </a>
         <a
-          class="font-medium text-muted-foreground hover:text-foreground"
+          class="text-muted-foreground hover:text-foreground font-medium"
           href="https://github.com/iam-rohid"
           target="_blank"
           rel="nofollow"

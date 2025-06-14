@@ -1,7 +1,6 @@
 ---
 import BlogPostCard from "@/components/BlogPostCard.astro";
 import MetaTags from "@/components/MetaTags.astro";
-import ProjectCard from "@/components/ProjectCard.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
@@ -33,16 +32,18 @@ const recentBlogPosts = blogPosts
     slot="head"
   />
 
-  <main class="container mx-auto my-8 max-w-screen-md space-y-16 px-4 md:px-8">
+  <main
+    class="container mx-auto my-8 max-w-(--breakpoint-md) space-y-16 px-4 md:px-8"
+  >
     <section class="space-y-4">
       <h2 class="font-semibold">About me</h2>
-      <p class="leading-6 text-muted-foreground">
+      <p class="text-muted-foreground leading-6">
         Hi, I’m Rohid, a Full-Stack Freelance Developer from Bangladesh. I build
         interactive web and mobile apps with a focus on great UI/UX. I love
         exploring new tech, contributing to open source, and creating tools for
         developers. <a
           href="https://x.com/rohiddev"
-          class="inline-flex items-center gap-1 font-medium text-foreground hover:underline"
+          class="text-foreground inline-flex items-center gap-1 font-medium hover:underline"
           target="_blank"
           rel="nofollow noreferrer"
           >Say hi
@@ -73,7 +74,7 @@ const recentBlogPosts = blogPosts
       <div class="flex items-center justify-end">
         <a
           href="/blog"
-          class="flex items-center font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
+          class="text-muted-foreground hover:text-foreground flex items-center font-medium transition-colors duration-200"
           >All Posts <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

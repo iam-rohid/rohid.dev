@@ -14,7 +14,7 @@ const projects = await getCollection("projects");
     keywords={["Rohid", "Projects", "Project"]}
     slot="head"
   />
-  <main class="container mx-auto my-8 max-w-screen-md px-4 md:px-8">
+  <main class="container mx-auto my-8 max-w-(--breakpoint-md) px-4 md:px-8">
     <h2 class="text-2xl font-bold">All Projects</h2>
     <div class="-mx-4 mt-8 grid">
       {projects.map((project) => <ProjectCard {project} />)}

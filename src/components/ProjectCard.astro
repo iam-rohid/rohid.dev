@@ -14,7 +14,7 @@ const { project } = Astro.props;
 const technologies = await getEntries(project.data.technologies);
 ---
 
-<div class="group relative p-4 hover:bg-muted/50 md:rounded-lg">
+<div class="group hover:bg-muted/50 relative p-4 md:rounded-lg">
   <a
     href={project.data.url}
     class="peer absolute inset-0 focus:outline md:rounded-lg"
@@ -33,7 +33,7 @@ const technologies = await getEntries(project.data.technologies);
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    class="pointer-events-none absolute right-4 top-4 h-5 w-5 text-muted-foreground transition-colors duration-200 peer-hover:text-foreground"
+    class="text-muted-foreground peer-hover:text-foreground pointer-events-none absolute top-4 right-4 h-5 w-5 transition-colors duration-200"
     ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
       d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg
   >
@@ -58,7 +58,7 @@ const technologies = await getEntries(project.data.technologies);
             alt={`${project.data.name} icon dark`}
             width={128}
             height={128}
-            class="absolute bottom-0 left-0 right-0 top-0 hidden aspect-square object-contain dark:block"
+            class="absolute top-0 right-0 bottom-0 left-0 hidden aspect-square object-contain dark:block"
           />
         )
       }
@@ -66,7 +66,7 @@ const technologies = await getEntries(project.data.technologies);
 
     <div class="flex-1">
       <h3 class="font-semibold">{project.data.name}</h3>
-      <p class="mt-2 leading-6 text-muted-foreground">
+      <p class="text-muted-foreground mt-2 leading-6">
         {project.data.description}
       </p>
     </div>
@@ -79,7 +79,7 @@ const technologies = await getEntries(project.data.technologies);
             buttonVariants({
               variant: "outline",
             }),
-            "pointer-events-none z-10 h-fit rounded-full bg-transparent py-1.5 pl-1.5 pr-2.5 leading-4 text-muted-foreground"
+            "text-muted-foreground pointer-events-none z-10 h-fit rounded-full bg-transparent py-1.5 pr-2.5 pl-1.5 leading-4"
           )}
         >
           <div class="relative mr-1 h-4 w-4">
@@ -89,7 +89,7 @@ const technologies = await getEntries(project.data.technologies);
               width={128}
               height={128}
               class={cn(
-                "absolute bottom-0 left-0 right-0 top-0 block aspect-square object-contain",
+                "absolute top-0 right-0 bottom-0 left-0 block aspect-square object-contain",
                 {
                   "dark:hidden": !!tech.data.iconDark,
                 }
@@ -101,7 +101,7 @@ const technologies = await getEntries(project.data.technologies);
                 alt={`${tech.data.name} icon dark`}
                 width={128}
                 height={128}
-                class="absolute bottom-0 left-0 right-0 top-0 hidden aspect-square object-contain dark:block"
+                class="absolute top-0 right-0 bottom-0 left-0 hidden aspect-square object-contain dark:block"
               />
             )}
           </div>
