@@ -6,7 +6,7 @@ import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import { remarkReadingTime } from "./plugins/remark-reading-time.mjs";
 
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -18,7 +18,11 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime],
   },
-  integrations: [tailwind({ applyBaseStyles: false }), mdx(), sitemap(), react()],
-  output: "hybrid",
+  integrations: [
+    tailwind({ applyBaseStyles: false }),
+    mdx(),
+    sitemap(),
+    react(),
+  ],
   adapter: vercel(),
 });
