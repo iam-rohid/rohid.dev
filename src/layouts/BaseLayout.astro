@@ -55,6 +55,31 @@ import "@/styles/globals.css";
 
       gtag("config", "G-N165NS4LRX");
     </script>
+
+    <!-- SiteAssist chat widget script -->
+    <script type="text/javascript">
+      !(function (t, e, c, n, s) {
+        if (t[s]) return;
+        const i = (t[s] = function () {
+          i._q.push(arguments);
+        });
+        i._q = [];
+        const o = e.createElement("script");
+        (o.async = !0),
+          (o.src =
+            "https://cnrib24ur3hk4b49.public.blob.vercel-storage.com/widget/latest/widget.js"),
+          e.head.appendChild(o);
+      })(window, document, 0, 0, "SiteAssist");
+    </script>
+
+    <script type="text/javascript">
+      // Initialize the SiteAssist widget with the API Key
+      SiteAssist("init", {
+        apiKey:
+          "pk_Meq3gdin7GezsVdPpqcLz234teQYdbNabEs12IzEoEM3lbilq1GbQEDgcXrK1",
+        theme: "auto",
+      });
+    </script>
   </head>
   <body class="flex min-h-screen flex-col">
     <slot />
