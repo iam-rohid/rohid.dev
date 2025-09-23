@@ -1,6 +1,7 @@
 ---
 import BlogPostCard from "@/components/BlogPostCard.astro";
 import MetaTags from "@/components/MetaTags.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import { getCollection } from "astro:content";
 import dayjs from "dayjs";
@@ -12,7 +13,13 @@ const recentBlogPosts = blogPosts
   .sort((a, b) =>
     dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1
   )
-  .slice(0, 10);
+  .slice(0, 5);
+const projects = await getCollection("projects");
+const topProjects = projects
+  .sort((a, b) =>
+    a.data.weight > b.data.weight ? -1 : b.data.weight > a.data.weight ? 1 : 0
+  )
+  .slice(0, 3);
 ---
 
 <HomeLayout>
@@ -67,11 +74,40 @@ const recentBlogPosts = blogPosts
     </section>
 
     <section class="space-y-4">
-      <h2 class="font-semibold">Recent Posts</h2>
-      <div class="-mx-4 grid">
-        {recentBlogPosts.map((post) => <BlogPostCard {post} />)}
+      <div class="flex items-center gap-2">
+        <div class="flex-1">
+          <h2 class="truncate font-semibold">Featured Projects</h2>
+        </div>
+        <a
+          href="/projects"
+          class="text-muted-foreground hover:text-foreground flex items-center font-medium transition-colors duration-200"
+        >
+          All Projects
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="ml-2 h-5 w-5"
+            ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+          >
+        </a>
       </div>
-      <div class="flex items-center justify-end">
+
+      <div class="-mx-4 grid">
+        {topProjects.map((project) => <ProjectCard {project} />)}
+      </div>
+    </section>
+    <section class="space-y-4">
+      <div class="flex items-center">
+        <div class="flex-1">
+          <h2 class="truncate font-semibold">Recent Posts</h2>
+        </div>
         <a
           href="/blog"
           class="text-muted-foreground hover:text-foreground flex items-center font-medium transition-colors duration-200"
@@ -89,6 +125,9 @@ const recentBlogPosts = blogPosts
             ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
           ></a
         >
+      </div>
+      <div class="-mx-4 grid">
+        {recentBlogPosts.map((post) => <BlogPostCard {post} />)}
       </div>
     </section>
   </main>
