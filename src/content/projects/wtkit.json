@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "WTKit",
+  "description": "Your WakaTime stats, always within reach!",
+  "url": "https://wtkit.app",
+  "technologies": ["expo", "typescript"],
+  "icon": "/images/projects/wtkit/icon.webp",
+  "weight": 6
+}

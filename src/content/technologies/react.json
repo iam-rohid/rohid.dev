@@ -1,0 +1,6 @@
+{
+  "$schema": "../../../.astro/collections/technologies.schema.json",
+  "name": "React",
+  "icon": "/images/technologies/react/icon.svg",
+  "iconDark": "/images/technologies/react/icon-dark.svg"
+}

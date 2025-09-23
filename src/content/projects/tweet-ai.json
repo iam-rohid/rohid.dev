@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "Tweet AI",
+  "description": "AI Tweet Generator",
+  "url": "https://apps.apple.com/us/app/tweet-ai-ai-tweet-generator/id6473770693",
+  "technologies": ["expo", "react-native", "typescript"],
+  "icon": "/images/projects/tweet-ai/icon.webp",
+  "weight": 3
+}

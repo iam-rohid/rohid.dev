@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "Sonkhipto",
+  "description": "Sonkhipto delivers concise news updates tailored for the modern reader. Stay ahead of the curve with quick, easy-to-digest news bites in both Bangla and English. Spend less time scrolling, more time knowing.",
+  "url": "https://sonkhipto.com",
+  "technologies": ["expo", "react-native", "typescript"],
+  "featured": true,
+  "icon": "/images/projects/sonkhipto/icon.png",
+  "weight": 7
+}

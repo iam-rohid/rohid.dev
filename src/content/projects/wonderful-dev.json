@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "Wonderful.dev",
+  "description": "The social platform for devs",
+  "url": "https://wonderful.dev",
+  "technologies": ["nextjs", "expo", "react-native", "typescript"],
+  "featured": true,
+  "icon": "/images/projects/wonderful-dev/icon.png",
+  "weight": 9
+}

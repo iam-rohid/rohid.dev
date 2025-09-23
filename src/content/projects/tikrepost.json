@@ -1,0 +1,8 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "TikRepost",
+  "description": "Discover TikRepost, the essential app for TikTok enthusiasts looking to excel. Gain valuable insights into your profile, track trends, and optimize your content strategy.",
+  "url": "https://apps.apple.com/us/app/tikrepost-save-tok-videos/id6476879446",
+  "technologies": ["expo", "react-native", "typescript"],
+  "icon": "/images/projects/tikrepost/icon.webp"
+}

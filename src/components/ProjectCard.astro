@@ -45,7 +45,7 @@ const technologies = await getEntries(project.data.technologies);
         width={128}
         height={128}
         class={cn(
-          "absolute top-0 right-0 bottom-0 left-0 block aspect-square object-contain",
+          "absolute top-0 right-0 bottom-0 left-0 block aspect-square overflow-hidden rounded-xl object-contain",
           {
             "dark:hidden": !!project.data.iconDark,
           }
@@ -58,7 +58,7 @@ const technologies = await getEntries(project.data.technologies);
             alt={`${project.data.name} icon dark`}
             width={128}
             height={128}
-            class="absolute top-0 right-0 bottom-0 left-0 hidden aspect-square object-contain dark:block"
+            class="absolute top-0 right-0 bottom-0 left-0 hidden aspect-square overflow-hidden rounded-xl object-contain dark:block"
           />
         )
       }

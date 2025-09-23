@@ -1,0 +1,11 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "SiteAssist",
+  "description": "AI Agents Trained on Your Data",
+  "url": "https://siteassist.io",
+  "technologies": ["nextjs", "typescript"],
+  "featured": true,
+  "icon": "/images/projects/siteassist/icon.png",
+  "iconDark": "/images/projects/siteassist/icon-dark.png",
+  "weight": 20
+}

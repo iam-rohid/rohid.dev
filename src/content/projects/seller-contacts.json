@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "Seller Contacts",
+  "description": "Worlds Largest Database of Amazon Sellers",
+  "url": "http://sellercontacts.com",
+  "technologies": ["react", "typescript"],
+  "icon": "/images/projects/seller-contacts/icon.png",
+  "weight": 5
+}

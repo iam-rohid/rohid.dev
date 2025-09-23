@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "Hashtag+",
+  "description": "AI Hashtag Generator",
+  "url": "https://apps.apple.com/us/app/hashtag-ai-hashtag-generator/id6474995027",
+  "technologies": ["expo", "react-native", "typescript"],
+  "icon": "/images/projects/hashtag-plus/icon.webp",
+  "weight": 2
+}

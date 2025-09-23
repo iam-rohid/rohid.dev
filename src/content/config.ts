@@ -23,6 +23,7 @@ const projectCollection = defineCollection({
     githubRepo: z.string().url().optional(),
     technologies: z.array(reference("technologies")),
     featured: z.boolean().default(false),
+    weight: z.number().optional().default(0),
   }),
 });
 

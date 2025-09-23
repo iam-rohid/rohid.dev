@@ -5,6 +5,9 @@ import HomeLayout from "@/layouts/HomeLayout.astro";
 import { getCollection } from "astro:content";
 
 const projects = await getCollection("projects");
+projects.sort((a, b) =>
+  a.data.weight > b.data.weight ? -1 : b.data.weight > a.data.weight ? 1 : 0
+);
 ---
 
 <HomeLayout>

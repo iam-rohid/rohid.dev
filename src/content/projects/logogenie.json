@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "LogoGenie",
+  "description": "From scribble to standout: studio-quality logos in under a minute.",
+  "url": "https://logogenie.app",
+  "technologies": ["expo", "typescript"],
+  "icon": "/images/projects/logogenie/icon.png",
+  "iconDark": "/images/projects/logogenie/icon-dark.png",
+  "weight": 5
+}
