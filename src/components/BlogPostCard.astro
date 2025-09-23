@@ -10,11 +10,11 @@ const { post } = Astro.props;
 ---
 
 <div
-  class="hover:bg-muted/50 relative flex flex-col p-4 transition-colors duration-200 md:rounded-lg"
+  class="hover:bg-muted/50 relative flex flex-col p-4 transition-colors duration-200 md:rounded-xl"
 >
   <a
     href={`/blog/${post.slug}`}
-    class="absolute inset-0 focus:outline md:rounded-lg"
+    class="absolute inset-0 focus:outline md:rounded-xl"
   >
     <div class="sr-only">{post.data.title}</div>
   </a>
@@ -55,9 +55,9 @@ const { post } = Astro.props;
       post.data.tags.map((tag) => (
         <a
           href={`/tags/${tag}`}
-          class="bg-muted text-muted-foreground hover:text-foreground rounded-md px-2 py-1 font-mono text-sm"
+          class="bg-secondary/50 hover:bg-secondary text-muted-foreground hover:text-foreground rounded-full px-2.5 py-1 text-sm underline-offset-2 hover:underline"
         >
-          {tag}
+          #{tag}
         </a>
       ))
     }

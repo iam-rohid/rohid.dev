@@ -14,10 +14,10 @@ const { project } = Astro.props;
 const technologies = await getEntries(project.data.technologies);
 ---
 
-<div class="group hover:bg-muted/50 relative p-4 md:rounded-lg">
+<div class="group hover:bg-muted/50 relative p-4 md:rounded-xl">
   <a
     href={project.data.url}
-    class="peer absolute inset-0 focus:outline md:rounded-lg"
+    class="peer absolute inset-0 focus:outline md:rounded-xl"
     target="_blank"
     rel="nofollow"
   >
@@ -45,7 +45,7 @@ const technologies = await getEntries(project.data.technologies);
         width={128}
         height={128}
         class={cn(
-          "absolute bottom-0 left-0 right-0 top-0 block object-contain aspect-square",
+          "absolute top-0 right-0 bottom-0 left-0 block aspect-square object-contain",
           {
             "dark:hidden": !!project.data.iconDark,
           }
@@ -69,45 +69,45 @@ const technologies = await getEntries(project.data.technologies);
       <p class="text-muted-foreground mt-2 leading-6">
         {project.data.description}
       </p>
-    </div>
-  </div>
-  <div class="mt-4 flex flex-wrap gap-2">
-    {
-      technologies.map((tech) => (
-        <div
-          class={cn(
-            buttonVariants({
-              variant: "outline",
-            }),
-            "text-muted-foreground pointer-events-none z-10 h-fit rounded-full bg-transparent py-1.5 pr-2.5 pl-1.5 leading-4"
-          )}
-        >
-          <div class="relative mr-1 h-4 w-4">
-            <Image
-              src={tech.data.icon}
-              alt={`${tech.data.name} icon`}
-              width={128}
-              height={128}
+      <div class="mt-4 flex flex-wrap gap-2">
+        {
+          technologies.map((tech) => (
+            <div
               class={cn(
-                "absolute top-0 right-0 bottom-0 left-0 block aspect-square object-contain",
-                {
-                  "dark:hidden": !!tech.data.iconDark,
-                }
+                buttonVariants({
+                  variant: "outline",
+                }),
+                "text-muted-foreground pointer-events-none z-10 h-fit rounded-full bg-transparent py-1.5 pr-2.5 pl-1.5 leading-4"
               )}
-            />
-            {tech.data.iconDark && (
-              <Image
-                src={tech.data.iconDark}
-                alt={`${tech.data.name} icon dark`}
-                width={128}
-                height={128}
-                class="absolute top-0 right-0 bottom-0 left-0 hidden aspect-square object-contain dark:block"
-              />
-            )}
-          </div>
-          {tech.data.name}
-        </div>
-      ))
-    }
+            >
+              <div class="relative mr-1 h-4 w-4">
+                <Image
+                  src={tech.data.icon}
+                  alt={`${tech.data.name} icon`}
+                  width={128}
+                  height={128}
+                  class={cn(
+                    "absolute top-0 right-0 bottom-0 left-0 block aspect-square object-contain",
+                    {
+                      "dark:hidden": !!tech.data.iconDark,
+                    }
+                  )}
+                />
+                {tech.data.iconDark && (
+                  <Image
+                    src={tech.data.iconDark}
+                    alt={`${tech.data.name} icon dark`}
+                    width={128}
+                    height={128}
+                    class="absolute top-0 right-0 bottom-0 left-0 hidden aspect-square object-contain dark:block"
+                  />
+                )}
+              </div>
+              {tech.data.name}
+            </div>
+          ))
+        }
+      </div>
+    </div>
   </div>
 </div>
