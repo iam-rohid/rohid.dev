@@ -1,7 +1,7 @@
 {
   "$schema": "../../../.astro/collections/projects.schema.json",
-  "name": "SiteAssist",
-  "description": "AI Agents Trained on Your Data",
+  "name": "SiteAssist.io",
+  "description": "SiteAssist lets you train an AI chatbot on your own docs, pages, and FAQs — and embed it with just one line of code. Help your visitors get instant answers, 24/7.",
   "url": "https://siteassist.io",
   "technologies": ["nextjs", "typescript"],
   "featured": true,
