@@ -1,5 +1,6 @@
 ---
 import BlogPostCard from "@/components/BlogPostCard.astro";
+import Link from "@/components/Link.astro";
 import MetaTags from "@/components/MetaTags.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
@@ -42,35 +43,13 @@ const topProjects = projects
   <main
     class="container mx-auto my-8 max-w-(--breakpoint-md) space-y-16 px-4 md:px-8"
   >
-    <section class="space-y-4">
-      <h2 class="font-semibold">About me</h2>
-      <p class="text-muted-foreground leading-6">
-        Hi, I’m Rohid, a Full-Stack Freelance Developer from Bangladesh. I build
-        interactive web and mobile apps with a focus on great UI/UX. I love
-        exploring new tech, contributing to open source, and creating tools for
-        developers. <a
-          href="https://x.com/rohiddev"
-          class="text-foreground inline-flex items-center gap-1 font-medium hover:underline"
-          target="_blank"
-          rel="nofollow noreferrer"
-          >Say hi
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="h-4 w-4"
-            ><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path
-              d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-            ></path></svg
-          >
-        </a> on X/Twitter!
-      </p>
+    <section class="main-content">
+      <h2 class="font-semibold mb-4">About me</h2>
+        <p class="leading-relaxed mb-2">
+          Hi, I’m <b>Rohid</b>, a Full-Stack Freelance Developer from <b>Bangladesh</b>. I build modern web and mobile apps with a focus on clean design and great UX.
+        </p>
+        <p class="leading-relaxed mb-2">Currently building <Link href="https://siteassist.io?ref=rohid.dev" external>SiteAssist.io</Link> — an AI platform that lets businesses add intelligent assistants to their websites.</p>
+        <p class="leading-relaxed">I love exploring new tech, contributing to open source, and creating tools that make developers’ lives easier. Say hi on <Link href="https://x.com/rohiddev" external>@rohiddev</Link>!</p>
     </section>
 
     <section class="space-y-4">

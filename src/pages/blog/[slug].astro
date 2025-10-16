@@ -65,21 +65,12 @@ ogImage.searchParams.set("title", post.data.title);
           </p>
         </div>
         <h1 class="text-2xl font-bold">{post.data.title}</h1>
-        <!-- <p class="leading-6 text-muted-foreground">
+        <p class="leading-6 text-muted-foreground">
           {post.data.description}
-        </p> -->
+        </p>
       </div>
-      <!-- <div class="-mx-4 my-4">
-        <Image
-          src={post.data.image.src}
-          alt={post.data.image.alt ?? post.data.title}
-          width={1920}
-          height={1080}
-          class="aspect-video w-full object-cover md:rounded-lg"
-        />
-      </div> -->
       <div
-        class="prose mt-8 min-w-0 max-w-none dark:prose-invert prose-pre:bg-muted dark:prose-pre:bg-muted max-md:prose-pre:rounded-none"
+        class="prose mt-8 min-w-0 max-w-none dark:prose-invert prose-pre:bg-muted dark:prose-pre:bg-muted max-md:prose-pre:rounded-none main-content"
       >
         <Content />
       </div>
