@@ -13,7 +13,7 @@ const { post } = Astro.props;
   class="hover:bg-muted/50 relative flex flex-col p-4 transition-colors duration-200 md:rounded-xl"
 >
   <a
-    href={`/blog/${post.slug}`}
+    href={`/blog/${post.id}`}
     class="absolute inset-0 focus:outline md:rounded-xl"
   >
     <div class="sr-only">{post.data.title}</div>

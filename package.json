@@ -11,14 +11,13 @@
     "format": "prettier . --write"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.3.6",
-    "@astrojs/react": "^4.3.1",
-    "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/vercel": "^8.2.8",
-    "@tailwindcss/vite": "^4.1.10",
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/mdx": "^6.0.3",
+    "@astrojs/react": "^5.0.7",
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/vercel": "^10.0.8",
     "@vercel/og": "^0.6.2",
-    "astro": "^5.13.10",
+    "astro": "^6.4.6",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
@@ -32,6 +31,7 @@
     "tailwind-variants": "^1.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.10",
     "@tailwindcss/typography": "^0.5.15",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",

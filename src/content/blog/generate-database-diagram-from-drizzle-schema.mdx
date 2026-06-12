@@ -12,8 +12,8 @@ tags:
 
 import { Image } from "astro:assets";
 import AdCard from "@/components/AdCard.astro";
-import dbmlLivePreview from "./dbml-live-preview.gif";
-import dbmlEntityRelationshipDiagramsVisualizer from "./dbml-entity-relationship-diagrams-visualizer.gif";
+import dbmlLivePreview from "@/assets/blog/generate-database-diagram-from-drizzle-schema/dbml-live-preview.gif";
+import dbmlEntityRelationshipDiagramsVisualizer from "@/assets/blog/generate-database-diagram-from-drizzle-schema/dbml-entity-relationship-diagrams-visualizer.gif";
 
 Welcome! In this guide, I’ll show you how to generate a database diagram from your [Drizzle ORM][drizzle-orm] schema using the [Drizzle DBML Generator][drizzle-dbml-generator]. Whether you’re working with Postgres or another database, these steps will help you visualize your schema quickly and efficiently.
 
@@ -95,6 +95,7 @@ Now that we have a Database Markup Language file, we need a tool to create a dia
   src={dbmlEntityRelationshipDiagramsVisualizer}
   alt="DBML Entity-Relationship Diagrams visualizer"
   densities={[0.5, 1]}
+  quality={50}
 />
 
 And that’s it! You’ve now successfully generated a database diagram from your [Drizzle ORM][drizzle-orm] schema. Using [DBML][dbml] and the Visual Studio extensions, you can easily visualize and manage your database structure. Happy coding!

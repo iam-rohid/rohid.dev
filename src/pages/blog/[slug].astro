@@ -2,7 +2,7 @@
 import MetaTags from "@/components/MetaTags.astro";
 import HomeLayout from "@/layouts/HomeLayout.astro";
 import type { InferGetStaticPropsType } from "astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import dayjs from "dayjs";
 
 export async function getStaticPaths() {
@@ -10,14 +10,14 @@ export async function getStaticPaths() {
     return import.meta.env.PROD ? data.isDraft !== true : true;
   });
   return blogPosts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { post } = Astro.props;
-const { Content, remarkPluginFrontmatter } = await post.render();
+const { Content, remarkPluginFrontmatter } = await render(post);
 const ogImage = new URL(`${Astro.url.origin}/api/og.png`);
 ogImage.searchParams.set("title", post.data.title);
 ---
