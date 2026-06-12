@@ -3,9 +3,10 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import { remarkReadingTime } from "./plugins/remark-reading-time.mjs";
 import tailwindcss from "@tailwindcss/vite";
-import vercel from "@astrojs/vercel";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
+
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,5 +18,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  adapter: vercel(),
+  adapter: cloudflare({
+    imageService: { build: "compile", runtime: "cloudflare-binding" },
+  }),
 });
