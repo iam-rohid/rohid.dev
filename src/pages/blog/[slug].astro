@@ -33,7 +33,7 @@ ogImage.searchParams.set("title", post.data.title);
   <main class="container mx-auto my-8 max-w-(--breakpoint-md) px-4 md:px-8">
     <article>
       <div class="space-y-2">
-        <div class="flex flex-wrap gap-2 text-muted-foreground">
+        <div class="text-muted-foreground flex flex-wrap gap-2">
           <time
             class="flex items-center gap-2"
             datetime={post.data.publishDate.toDateString()}
@@ -65,12 +65,12 @@ ogImage.searchParams.set("title", post.data.title);
           </p>
         </div>
         <h1 class="text-2xl font-bold">{post.data.title}</h1>
-        <p class="leading-6 text-muted-foreground">
+        <p class="text-muted-foreground leading-6">
           {post.data.description}
         </p>
       </div>
       <div
-        class="prose mt-8 min-w-0 max-w-none dark:prose-invert prose-pre:bg-muted dark:prose-pre:bg-muted max-md:prose-pre:rounded-none main-content"
+        class="prose dark:prose-invert prose-pre:bg-muted dark:prose-pre:bg-muted max-md:prose-pre:rounded-none main-content mt-8 max-w-none min-w-0"
       >
         <Content />
       </div>

@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
   blogPosts
     .sort((a, b) =>
-      dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1
+      dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1,
     )
     .forEach((post) => {
       post.data.tags.forEach((tag) => {

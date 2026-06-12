@@ -48,7 +48,7 @@ const technologies = await getEntries(project.data.technologies);
           "absolute top-0 right-0 bottom-0 left-0 block aspect-square overflow-hidden rounded-xl object-contain",
           {
             "dark:hidden": !!project.data.iconDark,
-          }
+          },
         )}
       />
       {
@@ -77,7 +77,7 @@ const technologies = await getEntries(project.data.technologies);
                 buttonVariants({
                   variant: "outline",
                 }),
-                "text-muted-foreground pointer-events-none z-10 h-fit rounded-full bg-transparent py-1.5 pr-2.5 pl-1.5 leading-4"
+                "text-muted-foreground pointer-events-none z-10 h-fit rounded-full bg-transparent py-1.5 pr-2.5 pl-1.5 leading-4",
               )}
             >
               <div class="relative mr-1 h-4 w-4">
@@ -90,7 +90,7 @@ const technologies = await getEntries(project.data.technologies);
                     "absolute top-0 right-0 bottom-0 left-0 block aspect-square object-contain",
                     {
                       "dark:hidden": !!tech.data.iconDark,
-                    }
+                    },
                   )}
                 />
                 {tech.data.iconDark && (

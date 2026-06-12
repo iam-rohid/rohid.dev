@@ -9,7 +9,7 @@ const blogPosts = await getCollection("blog", ({ data }) => {
   return import.meta.env.PROD ? data.isDraft !== true : true;
 });
 const sortedBlogPosts = blogPosts.sort((a, b) =>
-  dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1
+  dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1,
 );
 
 const ogImage = new URL(`${Astro.url.origin}/api/og.png`);

@@ -1,26 +1,47 @@
 ---
 interface Props {
-    image: string;
-    title: string;
-    description: string;
-    link: string;
-    linkText: string;
+  image: string;
+  title: string;
+  description: string;
+  link: string;
+  linkText: string;
 }
 
 const { image, title, description, link, linkText } = Astro.props;
 ---
 
-<div class="bg-background dark:bg-secondary/50 rounded-xl border shadow-sm flex max-sm:flex-col overflow-hidden h-fit relative my-6">
-    <div class="sm:w-64 w-full max-sm:h-48 relative">
-        <img src={image} alt={title} class="w-full h-full object-cover m-0! absolute inset-0" />
-        <div class="absolute bottom-1 left-1 bg-black/50 text-white/80 text-sm px-2 py-0.5 rounded-md">Ad</div>
+<div
+  class="bg-background dark:bg-secondary/50 relative my-6 flex h-fit overflow-hidden rounded-xl border shadow-sm max-sm:flex-col"
+>
+  <div class="relative w-full max-sm:h-48 sm:w-64">
+    <img
+      src={image}
+      alt={title}
+      class="absolute inset-0 m-0! h-full w-full object-cover"
+    />
+    <div
+      class="absolute bottom-1 left-1 rounded-md bg-black/50 px-2 py-0.5 text-sm text-white/80"
+    >
+      Ad
     </div>
-    <div class="flex-1 p-4">
-        <h3 class="text-lg font-semibold mt-0 mb-2">
-            {title}
-            <a href={link} class="absolute inset-0 focus:outline" target="_blank" rel="nofollow" />
-        </h3>
-        <p class="text-sm text-muted-foreground mb-4 leading-relaxed">{description}</p>
-        <a href={link} class="text-sm text-primary hover:text-primary/80 inline-block mt-0 mb-0 relative no-underline hover:underline underline-offset-2" target="_blank" rel="nofollow">{linkText}</a>
-    </div>
+  </div>
+  <div class="flex-1 p-4">
+    <h3 class="mt-0 mb-2 text-lg font-semibold">
+      {title}
+      <a
+        href={link}
+        class="absolute inset-0 focus:outline"
+        target="_blank"
+        rel="nofollow"></a>
+    </h3>
+    <p class="text-muted-foreground mb-4 text-sm leading-relaxed">
+      {description}
+    </p>
+    <a
+      href={link}
+      class="text-primary hover:text-primary/80 relative mt-0 mb-0 inline-block text-sm no-underline underline-offset-2 hover:underline"
+      target="_blank"
+      rel="nofollow">{linkText}</a
+    >
+  </div>
 </div>

@@ -12,13 +12,13 @@ const blogPosts = await getCollection("blog", ({ data }) => {
 });
 const recentBlogPosts = blogPosts
   .sort((a, b) =>
-    dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1
+    dayjs(a.data.publishDate).isBefore(b.data.publishDate) ? 1 : -1,
   )
   .slice(0, 5);
 const projects = await getCollection("projects");
 const topProjects = projects
   .sort((a, b) =>
-    a.data.weight > b.data.weight ? -1 : b.data.weight > a.data.weight ? 1 : 0
+    a.data.weight > b.data.weight ? -1 : b.data.weight > a.data.weight ? 1 : 0,
   )
   .slice(0, 3);
 ---
@@ -44,12 +44,27 @@ const topProjects = projects
     class="container mx-auto my-8 max-w-(--breakpoint-md) space-y-16 px-4 md:px-8"
   >
     <section class="main-content">
-      <h2 class="font-semibold mb-4">About Me</h2>
-        <p class="leading-relaxed mb-2">
-          Hi, I’m <b>Rohid</b>, a Full-Stack Freelance Developer from <b>Bangladesh</b>. I build modern web and mobile apps with a focus on clean design and great UX.
-        </p>
-        <p class="leading-relaxed mb-2">Currently building <Link href="https://siteassist.io?ref=rohid.dev" external>SiteAssist.io</Link> — an AI platform that lets businesses add intelligent assistants to their websites.</p>
-        <p class="leading-relaxed">I love exploring new tech, contributing to open source, and creating tools that make developers’ lives easier. Say hi on <Link href="https://x.com/rohiddev" external>@rohiddev</Link>!</p>
+      <h2 class="mb-4 font-semibold">About Me</h2>
+      <p class="mb-2 leading-relaxed">
+        Hi, I’m <b>Rohid</b>, a Full-Stack Freelance Developer from <b
+          >Bangladesh</b
+        >. I build modern web and mobile apps with a focus on clean design and
+        great UX.
+      </p>
+      <p class="mb-2 leading-relaxed">
+        Currently building <Link
+          href="https://siteassist.io?ref=rohid.dev"
+          external>SiteAssist.io</Link
+        > — an AI platform that lets businesses add intelligent assistants to their
+        websites.
+      </p>
+      <p class="leading-relaxed">
+        I love exploring new tech, contributing to open source, and creating
+        tools that make developers’ lives easier. Say hi on <Link
+          href="https://x.com/rohiddev"
+          external>@rohiddev</Link
+        >!
+      </p>
     </section>
 
     <section class="space-y-4">
