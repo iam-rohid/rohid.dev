@@ -29,7 +29,7 @@ const pathname = new URL(Astro.request.url).pathname;
             "text-muted-foreground hover:text-foreground font-medium transition-colors duration-200",
             {
               "text-foreground": pathname.startsWith("/blog"),
-            }
+            },
           )}>Blog</a
         >
         <a
@@ -38,7 +38,7 @@ const pathname = new URL(Astro.request.url).pathname;
             "text-muted-foreground hover:text-foreground font-medium transition-colors duration-200",
             {
               "text-foreground": pathname.startsWith("/projects"),
-            }
+            },
           )}>Projects</a
         >
       </div>
@@ -97,6 +97,9 @@ const pathname = new URL(Astro.request.url).pathname;
           <span class="sr-only">Github</span>
         </a>
         <ThemeToggle />
+        <a href="/hire-me" class={cn(buttonVariants({ size: "sm" }), "ml-1")}>
+          Hire Me
+        </a>
       </div>
     </nav>
   </header>
@@ -116,7 +119,7 @@ const pathname = new URL(Astro.request.url).pathname;
       <div class="flex flex-wrap gap-4">
         <a
           class="text-muted-foreground hover:text-foreground font-medium"
-          href="mailto:rohidul209@gmail.com"
+          href="mailto:mail@rohid.dev"
           target="_blank"
           rel="nofollow"
         >

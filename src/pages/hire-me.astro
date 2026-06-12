@@ -1,0 +1,302 @@
+---
+import MetaTags from "@/components/MetaTags.astro";
+import HomeLayout from "@/layouts/HomeLayout.astro";
+import { buttonVariants } from "@/styles/button-variants";
+import { cn } from "@/lib/utils";
+
+const inputClasses =
+  "border-input bg-background ring-offset-background placeholder:text-muted-foreground focus-visible:ring-ring flex h-10 w-full rounded-lg border px-3 py-2 text-sm focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden";
+---
+
+<HomeLayout>
+  <MetaTags
+    title="Hire Me — Rohid"
+    description="Hire Rohid, a senior full-stack developer with 5+ years of experience shipping web, mobile, and AI products end-to-end. Available for freelance projects and open to full-time roles."
+    keywords={[
+      "Hire Rohid",
+      "Freelance Developer",
+      "Full-Stack Developer",
+      "React Developer",
+      "React Native Developer",
+      "TypeScript Developer",
+    ]}
+    slot="head"
+  />
+
+  <main
+    class="container mx-auto my-8 max-w-(--breakpoint-md) space-y-16 px-4 md:px-8"
+  >
+    <section class="space-y-4">
+      <p
+        class="text-muted-foreground inline-flex items-center gap-2 text-sm font-medium"
+      >
+        <span class="relative flex h-2.5 w-2.5">
+          <span
+            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"
+          ></span>
+          <span
+            class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500"
+          ></span>
+        </span>
+        Available for new projects
+      </p>
+      <h1 class="text-2xl font-bold">Let’s build something great together</h1>
+      <p class="leading-relaxed">
+        I’m <b>Rohid</b>, a senior full-stack developer with <b>5+ years</b> of experience
+        shipping production web, mobile, and desktop apps end-to-end. I take products
+        from idea to launch — architecture, APIs, and pixel-perfect UI — so you work
+        with one person who owns the whole thing.
+      </p>
+      <div class="flex flex-wrap items-center gap-3">
+        <a
+          href="/Rohidul_Islam_Resume.pdf"
+          download
+          class={buttonVariants({ variant: "default" })}
+        >
+          Download Resume
+        </a>
+        <a
+          href="mailto:mail@rohid.dev"
+          class={buttonVariants({ variant: "outline" })}
+        >
+          mail@rohid.dev
+        </a>
+      </div>
+      <p class="text-muted-foreground text-sm">
+        I reply to every inquiry within 24 hours.
+      </p>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="font-semibold">Why work with me</h2>
+      <ul class="space-y-3">
+        <li class="leading-relaxed">
+          <b>End-to-end ownership.</b> I’ve designed, built, and launched entire products
+          solo — including the Wonderful.dev mobile app (React Native / Expo), taken
+          from design through App Store release in a single codebase.
+        </li>
+        <li class="leading-relaxed">
+          <b>Proven at scale.</b> I led the design and launch of Wonderful.dev, a
+          developer social platform now serving 10,000+ users.
+        </li>
+        <li class="leading-relaxed">
+          <b>Trusted by founders.</b> I built Crackboard for WakaTime founder Alan
+          Hamlett, and I’m currently building SiteAssist.io — an AI platform that
+          gives businesses 24/7 automated support.
+        </li>
+        <li class="leading-relaxed">
+          <b>Modern AI expertise.</b> I’ve shipped AI products end-to-end: RAG chatbots,
+          on-device OCR, and AI generation, using the Vercel AI SDK, Claude Agent
+          SDK, and vector databases.
+        </li>
+        <li class="leading-relaxed">
+          <b>Truly full-stack.</b> TypeScript everywhere — React, Next.js, React Native,
+          Node.js, PostgreSQL — plus native Swift / SwiftUI when the job calls for
+          it.
+        </li>
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="font-semibold">What I can help you with</h2>
+      <ul
+        class="text-muted-foreground list-disc space-y-2 pl-5 leading-relaxed"
+      >
+        <li>
+          <span class="text-foreground font-medium">Web apps</span> — fast, modern
+          frontends and full products with React, Next.js, and TypeScript
+        </li>
+        <li>
+          <span class="text-foreground font-medium">Mobile apps</span> — iOS and Android
+          from one codebase with React Native / Expo, or native SwiftUI
+        </li>
+        <li>
+          <span class="text-foreground font-medium">AI features & products</span
+          >
+          — chatbots, AI-powered workflows, and integrations that actually ship
+        </li>
+        <li>
+          <span class="text-foreground font-medium">MVPs</span> — idea to launched
+          product, handled end-to-end by one developer
+        </li>
+      </ul>
+    </section>
+
+    <!-- TODO: Replace these placeholder testimonials with real client quotes
+         (with permission) before deploying this page. -->
+    <section class="space-y-4">
+      <h2 class="font-semibold">What clients say</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <figure class="bg-secondary/50 space-y-3 rounded-xl p-5">
+          <blockquote class="leading-relaxed">
+            “Rohid took our idea from a rough sketch to a polished, launched
+            product faster than we thought possible. He owned everything —
+            backend, frontend, and the details we didn’t even think to ask
+            about.”
+          </blockquote>
+          <figcaption class="text-muted-foreground text-sm font-medium">
+            Jane Doe — Founder, Acme Inc.
+          </figcaption>
+        </figure>
+        <figure class="bg-secondary/50 space-y-3 rounded-xl p-5">
+          <blockquote class="leading-relaxed">
+            “Clear communication, honest estimates, and quality code. Rohid felt
+            like a technical co-founder, not a contractor.”
+          </blockquote>
+          <figcaption class="text-muted-foreground text-sm font-medium">
+            John Smith — CEO, Example Labs
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="space-y-2">
+        <h2 class="font-semibold">Tell me about your project</h2>
+        <p class="text-muted-foreground leading-relaxed">
+          A few details and I’ll get back to you within 24 hours. I mostly work
+          with clients on a freelance basis, but I’m also open to full-time
+          roles for the right team and compensation.
+        </p>
+      </div>
+
+      <form id="hire-me-form" class="space-y-4" novalidate>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="space-y-2">
+            <label class="text-sm font-medium" for="name">Name</label>
+            <input
+              class={inputClasses}
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your name"
+              required
+              maxlength="200"
+            />
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-medium" for="email">Email</label>
+            <input
+              class={inputClasses}
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@company.com"
+              required
+              maxlength="320"
+            />
+          </div>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="space-y-2">
+            <label class="text-sm font-medium" for="inquiryType"
+              >What is this about?</label
+            >
+            <select class={inputClasses} id="inquiryType" name="inquiryType">
+              <option value="freelance">Freelance project</option>
+              <option value="full-time">Full-time role</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-medium" for="budget">
+              Budget <span class="text-muted-foreground">(optional)</span>
+            </label>
+            <select class={inputClasses} id="budget" name="budget">
+              <option value="">Select a range</option>
+              <option value="under-1k">Under $1,000</option>
+              <option value="1k-5k">$1,000 – $5,000</option>
+              <option value="5k-10k">$5,000 – $10,000</option>
+              <option value="10k-plus">$10,000+</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label class="text-sm font-medium" for="message">Message</label>
+          <textarea
+            class={cn(inputClasses, "h-32 resize-y")}
+            id="message"
+            name="message"
+            placeholder="Tell me about your project, role, or idea…"
+            required
+            maxlength="5000"></textarea>
+        </div>
+
+        <!-- Honeypot: invisible to humans, bots fill it in -->
+        <div class="sr-only" aria-hidden="true">
+          <label for="website">Website</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <button type="submit" class={buttonVariants({ variant: "default" })}>
+            Send Message
+          </button>
+          <p id="form-status" class="text-sm" role="status"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+</HomeLayout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("#hire-me-form");
+  const status = document.querySelector<HTMLParagraphElement>("#form-status");
+  const loadedAt = Date.now();
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const submitButton = form.querySelector<HTMLButtonElement>(
+      "button[type=submit]",
+    );
+    const formData = new FormData(form);
+
+    if (submitButton) submitButton.disabled = true;
+    if (status) {
+      status.className = "text-muted-foreground text-sm";
+      status.textContent = "Sending…";
+    }
+
+    try {
+      const res = await fetch("/api/hire-me", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          inquiryType: formData.get("inquiryType"),
+          budget: formData.get("budget"),
+          message: formData.get("message"),
+          website: formData.get("website"),
+          elapsedMs: Date.now() - loadedAt,
+        }),
+      });
+      if (!res.ok) throw new Error(`Request failed with ${res.status}`);
+
+      form.reset();
+      if (status) {
+        status.className = "text-sm font-medium text-green-600";
+        status.textContent = "Thanks! I’ll get back to you within 24 hours.";
+      }
+    } catch {
+      if (status) {
+        status.className = "text-destructive text-sm font-medium";
+        status.textContent =
+          "Something went wrong. Please email me at mail@rohid.dev instead.";
+      }
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+    }
+  });
+</script>
