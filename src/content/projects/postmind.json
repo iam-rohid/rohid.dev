@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "PostMind",
+  "description": "Write better posts, threads, and replies for X — without staring at a blank screen. Share a post screenshot or text into the app to instantly generate AI-powered replies and quotes.",
+  "url": "https://apps.apple.com/us/app/postmind-ai-post-writer/id6473770693",
+  "technologies": ["expo", "react-native", "typescript"],
+  "icon": "/images/projects/postmind/icon.png",
+  "weight": 3
+}

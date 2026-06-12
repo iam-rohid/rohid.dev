@@ -1,0 +1,10 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "StoreSway",
+  "description": "AI App Store screenshot maker that turns raw app screenshots into conversion-ready screenshot sets. The AI infers your app's selling points, writes benefit-led headlines, designs a cohesive set, and exports every required App Store and Play Store resolution — refine the whole set in plain English.",
+  "url": "https://storesway.byteform.co",
+  "technologies": ["react", "typescript"],
+  "featured": true,
+  "icon": "/images/projects/storesway/icon.svg",
+  "weight": 21
+}

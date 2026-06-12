@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "DateSnap",
+  "description": "Scans documents, screenshots, and flyers with on-device OCR to auto-detect important dates, deadlines, and events — then adds them to Apple Calendar and Reminders in seconds.",
+  "url": "https://datesnap.byteform.co",
+  "technologies": ["swift"],
+  "icon": "/images/projects/datesnap/icon.png",
+  "weight": 4
+}

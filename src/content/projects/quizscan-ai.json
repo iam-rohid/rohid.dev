@@ -1,0 +1,9 @@
+{
+  "$schema": "../../../.astro/collections/projects.schema.json",
+  "name": "QuizScan AI",
+  "description": "Turn lecture notes, PDFs, photos, and YouTube videos into AI-generated practice quizzes with explanations and progress tracking. Study smarter, not harder.",
+  "url": "https://apps.apple.com/us/app/quizscan-ai-study-quiz/id6759539406",
+  "technologies": ["expo", "react-native", "typescript"],
+  "icon": "/images/projects/quizscan-ai/icon.png",
+  "weight": 8
+}
