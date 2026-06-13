@@ -1,47 +1,78 @@
-# Astro Starter Kit: Minimal
+# rohid.dev
+
+My personal portfolio and blog, live at **[rohid.dev](https://rohid.dev)**.
+
+Built with Astro and React islands, styled with Tailwind CSS v4, and deployed to Cloudflare. Content (blog posts, projects, and the technologies behind them) is managed as type-safe content collections.
+
+## Tech stack
+
+- **[Astro 6](https://astro.build)** — static site with selective React islands
+- **[React 19](https://react.dev)** — interactive components
+- **[Tailwind CSS v4](https://tailwindcss.com)** — via the `@tailwindcss/vite` plugin, with shadcn/ui conventions
+- **[MDX](https://mdxjs.com)** — for blog posts
+- **[Cloudflare](https://developers.cloudflare.com/workers/)** — hosting via `@astrojs/cloudflare`
+- **[Resend](https://resend.com)** — "hire me" contact form
+- **[@vercel/og](https://vercel.com/docs/og-image-generation)** — dynamic per-page OG images
+- **TypeScript** in strict mode
+
+Package manager is **pnpm** (note `pnpm-lock.yaml`).
+
+## Getting started
 
 ```sh
-npm create astro@latest -- --template minimal
+pnpm install
+pnpm dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+The dev server runs at [http://localhost:4321](http://localhost:4321).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Commands
 
-## 🚀 Project Structure
+All commands are run from the root of the project:
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command          | Action                                                   |
+| :--------------- | :------------------------------------------------------- |
+| `pnpm dev`       | Start the local dev server at `localhost:4321`           |
+| `pnpm build`     | Type-check (`astro check`) then build to `./dist/`       |
+| `pnpm preview`   | Serve the production build locally                       |
+| `pnpm format`    | Run Prettier across the repo                             |
+| `pnpm astro ...` | Run Astro CLI commands (e.g. `astro add`, `astro check`) |
+
+There is no separate test suite — `pnpm build` (which runs `astro check`) is the source of truth for type safety.
+
+## Project structure
 
 ```text
 /
-├── public/
+├── public/                 # Static assets (fonts, images)
+├── plugins/
+│   └── remark-reading-time.mjs   # Injects reading time into post frontmatter
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/         # Astro + React components (ui/ for shadcn)
+│   ├── content/
+│   │   ├── blog/           # Blog posts (.mdx)
+│   │   ├── projects/       # Project entries (.json)
+│   │   └── technologies/   # Reusable tech metadata (.json)
+│   ├── content.config.ts   # Collection schemas (Zod)
+│   ├── pages/              # File-based routing
+│   │   ├── api/            # OG image + contact endpoints
+│   │   ├── blog/[slug]     # Blog post pages
+│   │   └── tags/[slug]     # Tag archives
+│   └── styles/             # globals.css (theme tokens), button variants
+└── astro.config.mjs
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Content
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Content lives in three [content collections](https://docs.astro.build/en/guides/content-collections/), all schema-validated:
 
-Any static assets, like images, can be placed in the `public/` directory.
+- **blog** — `src/content/blog/*.mdx`. Frontmatter includes `title`, `description`, `publishDate`, `tags[]`, optional `relatedPosts`, and `isDraft` (defaults to `true`). The slug is the filename.
+- **projects** — `src/content/projects/*.json`. Includes `featured`, `weight` (sort order), and `technologies` (references into the technologies collection).
+- **technologies** — `src/content/technologies/*.json`. Reusable name + light/dark icons, referenced by projects.
 
-## 🧞 Commands
+**Drafts** are visible in dev and hidden in production (`import.meta.env.PROD ? data.isDraft !== true : true`).
 
-All commands are run from the root of the project, from a terminal:
+## License
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Source code is available for reference. Content (blog posts, images, and other writing) is © Rohid — please don't republish without permission.
+</content>
