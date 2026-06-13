@@ -1,0 +1,61 @@
+---
+isDraft: false
+title: I Looked at a Bunch of Lovable Apps With Real Users. Here's What Kept Breaking.
+description: The five issues that surface in Lovable apps once they have real users — exposed keys, open database access, missing error states, lag — with quick self-checks.
+publishDate: 2025-07-13
+tags:
+  - lovable
+  - supabase
+  - security
+  - performance
+---
+
+If you built your app on Lovable and it's actually got paying customers — seriously, congrats. That's the part most people never reach. You had an idea, you shipped it, and humans are giving you money for it. The hard part is behind you.
+
+But there's a thing that happens after "it works."
+
+You start getting more users. The app feels a little slower. A customer emails you something weird they saw. You get a vague worry in the back of your head about whether everything's actually... safe. And you can't fully answer it, because the app _looks_ fine, and "looks fine" is the only signal you've ever had to go on.
+
+I spend my days in React and React Native codebases, and lately a lot of those have been vibe-coded apps that grew up. The same handful of issues show up almost every time. None of them mean you did anything wrong — they're just the natural gap between "make it work" and "make it real." Here's the stuff worth knowing about.
+
+## 1. Your API keys might be sitting in the browser
+
+Lovable is great at making things _just work_, and one way it does that is by putting API keys directly in the frontend. The problem is that anything in the frontend is visible to anyone who opens their browser's dev tools. Your keys aren't hidden — they're just not displayed on the page.
+
+Here's a 30-second check you can do right now: open your app, press F12, go to the Network tab, and click around. If you can spot your keys sitting in plain text in the requests, so can anyone else. And depending on what those keys unlock, that can range from "mildly annoying" to "someone can rack up a huge bill on your account" or "someone can read your data."
+
+The fix usually means moving sensitive calls to a backend or edge function so the key never touches the browser. Not a weekend rewrite, but worth knowing it's there.
+
+## 2. Your database might be trusting whoever asks
+
+Most Lovable apps run on Supabase, and Supabase has a feature called Row Level Security (RLS). In plain terms, RLS is the rule that says "user A can only see user A's data." When it's turned off or left wide open — which is common, because it makes early development smoother — your database will hand over data to anyone who asks for it.
+
+The scary part is that the app looks completely normal. Every user sees their own stuff, everything seems private. But if someone curious changes an ID in a URL or pokes at the API directly, they may be able to read — or edit — other customers' data. This is the single most common serious issue I see, and it's invisible from the outside.
+
+A rough check: open your app logged out (or as a basic user) and try to access something that should be private. If it loads when it shouldn't, your access rules need attention.
+
+## 3. The app only knows how to succeed
+
+Vibe coding is fantastic at building the "happy path" — the version where everything goes right. The network is fast, the request succeeds, the data is exactly the shape it expects. What usually doesn't get built is everything _around_ that: the loading spinner, the error message, the "try again" button, the graceful handling when something fails.
+
+So a user on a slow connection taps a button, nothing visibly happens, and they assume the app is broken. They don't email you — they just leave. This is one of the cheapest things to fix and one of the biggest quiet drains on retention, because you never see the people it costs you.
+
+## 4. It runs great on 12 rows and crawls on 2,000
+
+When the AI builds your app, it builds it against your test data — a handful of rows. It rarely stops to optimize, because at that size nothing needs optimizing. Then real usage shows up: more users, more records, more stuff loading at once, and the same screens that felt instant start to lag.
+
+Usually the culprit is the app re-doing work it doesn't need to (re-rendering, re-fetching, loading everything when it could load a little). The good news is this is a well-understood class of problem with well-understood fixes. The bad news is it tends to get worse exactly as you get more successful, which is a frustrating time to discover it.
+
+## 5. Small bugs that compound
+
+The last category is harder to name because it's a grab-bag: the form that lets you submit twice and creates duplicate records, the edge case where a blank field crashes a screen, the thing that works on your phone but breaks on someone's older Android. Individually they're minor. Collectively they're the difference between an app that feels solid and one that feels held together with tape — and customers can absolutely tell the difference, even when they can't articulate why.
+
+## None of this means vibe coding was a mistake
+
+I want to be clear about this, because it's easy to read a list like this and feel like you built on sand. You didn't. Vibe coding got you to paying customers faster than hand-writing every line ever could have. That was the right call. You'd be insane to spend six months hand-coding an app nobody had validated yet.
+
+What's happening now is just the next phase. Every app that succeeds eventually outgrows how it was first built — this is as true for funded startups with engineering teams as it is for a solo founder on Lovable. "Make it work" and "make it real" are two different jobs, and reaching the second one is a sign of success, not failure.
+
+If you've got a Lovable app with real users and any of this sounded a little too familiar, the encouraging news is that all of it is fixable, and most of it is more affordable to fix than you'd guess — especially compared to what one data leak or one bad week of churn can cost. The first step is just knowing which of these actually apply to _your_ app, which you can mostly figure out with the quick checks above.
+
+If you want a second pair of eyes on any of it, my DMs are open — happy to point you in the right direction, no strings attached. This is the stuff I stare at all day, and I genuinely like helping founders get their apps over this hump.

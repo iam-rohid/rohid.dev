@@ -1,0 +1,59 @@
+---
+isDraft: false
+title: You Shipped a React Native App With Claude Code. Here's What Usually Bites Next.
+description: Got a React Native app on the App Store with Claude Code or Codex? Here are six things that surface as real users arrive — device performance, native config debt, permissions, bundled secrets, failure handling, and the update treadmill.
+publishDate: 2025-07-13
+tags:
+  - lovable
+  - supabase
+  - security
+  - performance
+---
+
+If you built a React Native app with Claude Code or Codex and got it live on the App Store — that's a real accomplishment, and I don't think enough people say that. You didn't just generate some code that runs on localhost. You dealt with provisioning profiles, signing, a native build, and App Store review, which is a gauntlet that filters out most people who try. The app is _out there_. People can download it.
+
+So this isn't a "you did it wrong" article. It's the opposite. You got far enough that you're now hitting the problems that only show up once an AI-assisted app meets real devices and real users. These are different from the problems a vibe-coded web app hits, because you've got an extra layer most people don't think about: the native side.
+
+Here's what I keep running into in these codebases, roughly in the order founders tend to notice them.
+
+## 1. It runs great on your phone and badly on everyone else's
+
+This is the most common one, and it's sneaky because you literally cannot see it. You test on your device — probably a recent iPhone — and it's smooth. Then someone on an older phone, or an Android device if you went cross-platform, or just a phone with a full storage drive and 30 background apps, has a completely different experience: laggy scrolling, slow startup, janky animations.
+
+AI tools optimize for "does it work," and the device it implicitly assumes is fast. React Native makes this worse because the gap between "fine in development" and "fine on a mid-range device in the wild" is wide. Lists that re-render constantly, images loaded at full resolution, heavy work happening on the main thread — none of it shows up until it's on hardware that can't paper over it. If you've had a one-star review that just says "slow" or "laggy" and you couldn't reproduce it, this is almost always why.
+
+## 2. The native layer is a black box you didn't choose to have
+
+When Claude Code or Codex adds a feature that touches the device — push notifications, camera, location, in-app purchases, deep links — it pulls in native modules and wires up native config. And here's the thing: that's often the part you understand the least, because the AI handled it and it worked, so you moved on.
+
+The trouble is that native config is fragile and order-dependent. A library version bumps, an iOS update changes a permission requirement, you add a second library that conflicts with the first, and suddenly a build that worked last month won't compile — and the error message is a wall of Xcode output that means nothing to you. This isn't a flaw in your app so much as a debt you're carrying without a clear picture of it. The fix usually isn't dramatic; it's just that someone needs to actually understand what's pinned to what.
+
+## 3. Permissions and privacy can quietly fail review (or scare users)
+
+Apple is strict about permissions, and AI-generated apps tend to over-ask. The code requests camera, location, contacts, notifications — sometimes for features that don't even ship, because a library declared it or the AI added it defensively. Two problems follow from that.
+
+First, App Store review increasingly pushes back on permission requests that don't have an obvious in-app justification, and on missing or vague usage description strings. That's a rejection that can blindside you on an update you thought was trivial. Second, even when it passes review, a permission prompt that appears for no clear reason makes users distrust the app and tap "Don't Allow," which then breaks the feature that _did_ need it. It's worth knowing exactly what your app asks for and why.
+
+## 4. Secrets and keys end up bundled into the app
+
+It's tempting to think a mobile app is more private than a website — the code is compiled, it's on a device, who's going to look? But anyone can extract the contents of an app bundle, and API keys, tokens, or endpoints hardcoded into your JavaScript are readable. AI tools frequently drop keys directly into the code because it's the path of least resistance to a working feature.
+
+If those keys unlock anything that costs money or touches user data, that's a real exposure, and it's invisible from the outside exactly like the web version of this problem. The fix is the same in spirit: sensitive operations belong behind a backend, with the app holding as little as possible.
+
+## 5. There's no plan for when something fails in the wild
+
+On the web you can hotfix in seconds. On iOS, a broken release is stuck until Apple approves the next one, which can be a painful wait when users are hitting a crash. So the stakes for "handle failure gracefully" are higher on mobile — and gracefully handling failure is exactly what AI-generated happy-path code skips.
+
+Two things tend to be missing. One is basic resilience inside the app: error boundaries, retry logic, sensible behavior when the network drops mid-action (which on mobile it constantly does). The other is _visibility_ — crash reporting and error tracking, so that when something breaks for a user in another country on a phone you've never held, you find out from a dashboard instead of a one-star review. Most AI-built apps ship with neither, which means you're flying blind on the one platform where you can least afford to.
+
+## 6. The update treadmill
+
+This is less a bug than a reality of the platform. iOS changes every year, Apple deprecates things, React Native and its ecosystem move fast, and the native libraries the AI pulled in need to keep pace or they break. An app that's "done" still needs occasional maintenance just to keep working — and AI-assisted apps tend to accumulate more of these moving parts than a hand-built app would, because tools reach for a library wherever one exists. Knowing this is coming lets you budget for it instead of being surprised by it.
+
+## None of this is a knock on how you built it
+
+I want to land on the same note I'd want to hear. Building with Claude Code or Codex and getting to the App Store was a genuinely smart way to ship. You moved fast, you validated the thing on real users, and you avoided spending months hand-coding an app that might've flopped. That's the correct order of operations.
+
+What you're running into now is just the seam between "shipped" and "solid." It exists for every app — teams with full-time iOS engineers hit the exact same categories of problem; they just have someone whose job is to catch them. As a solo or small founder, you don't have that, so the issues stay invisible until a review or a crash surfaces them.
+
+The reassuring part is that all six of these are known, bounded problems with known fixes. The hard part is usually just figuring out which ones actually apply to your app and which are fine — a lot of this is checkable without rewriting anything. If you've shipped a React Native app this way and any of it hit a nerve, my DMs are open and I'm happy to help you sort out what's worth worrying about and what isn't. This is the layer I work in every day, and I like seeing founders get their app from "it's live" to "it's solid."
